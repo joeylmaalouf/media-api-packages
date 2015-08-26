@@ -1,33 +1,17 @@
-# YouTube Downloader
+# Media Packages
 
-Download any number of YouTube videos using either IDs/URLs or search terms.
-
-
-## Options:
-
-`-f FROMFILE, --fromfile=FROMFILE`: specify a source file that contains newline-separated video IDs/URLs or search terms
-
-`-o OUTPUTDIR, --outputdir=OUTPUTDIR`: specify the path to the directory where the videos will be saved
-
-`-s, --search`: specify that the inputs are search queries rather than video IDs/URLs
+Contains a number of my different media-related Python packages, as well as examples showing how to use and combine them.
 
 
-## Example Usage:
+## YouTube
 
-`python main.py youtu.be/dQw4w9WgXcQ`
+`search`: Given a search query, return one page's worth of YouTube search results, specifically the video IDs, titles, and durations.
 
-`python main.py \"doot doot\" --search`
-
-`python main.py --fromfile rhcp.txt --outputdir Music/RHCP`
-
-`python main.py -s -f hu.txt -o Music/HU`
+`download`: Given a video ID or URL, and an optional directory path (defaults to current directory), download the video to the directory (as a highest-quality .mp4).
 
 
-## Thanks To:
+## Spotify
 
-[PyTube!](https://github.com/nficano/pytube)
+`get_token`: Given a client ID and a client secret, return an authentication token string.
 
-
-## Goals:
-
-Write my own downloading to remove dependency on PyTube.
+`get_playlist_tracks`: Given a user ID and a playlist ID, return all of the song titles (and corresponding artists) in the track list.
