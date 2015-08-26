@@ -1,6 +1,6 @@
 # Media Packages
 
-Contains a number of my different media-related Python packages, as well as examples showing how to use and combine them.
+Contains a number of my different media-related Python interfaces, as well as examples showing how to use and combine them.
 
 
 ## YouTube
