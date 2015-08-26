@@ -20,7 +20,7 @@ Contains a number of my different media-related Python interfaces, as well as ex
 
 
 ## Example Usage
-#####(`spotify-playlist-downloader.py`)
+#####(`projects/spotify-playlist-downloader.py`)
 ```python
 for song, artists in spotify.get_playlist_tracks(user_id, playlist_id):
 	query = "\"{0}\" by {1}".format(song, ", ".join(artists))

@@ -1,4 +1,5 @@
 import os, sys
+sys.path.append("..")
 from APIs import youtube, spotify
 
 
@@ -18,4 +19,3 @@ if __name__ == "__main__":
 		query = "\"{0}\" by {1}".format(song, ", ".join(artists))
 		video_id = next(youtube.search(query))["id"]
 		youtube.download(video_id, path)
-	sys.exit(0)
