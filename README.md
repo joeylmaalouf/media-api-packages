@@ -1,6 +1,6 @@
 # YouTube Downloader
 
-This program allows the user to download any number of YouTube videos, using either IDs/URLs or search terms.
+Download any number of YouTube videos using either IDs/URLs or search terms.
 
 
 ## Options:
