@@ -26,3 +26,8 @@ Download any number of YouTube videos using either IDs/URLs or search terms.
 ## Thanks To:
 
 [PyTube!](https://github.com/nficano/pytube)
+
+
+## Goals:
+
+Write my own downloading to remove dependency on PyTube.
