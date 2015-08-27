@@ -6,9 +6,11 @@ Contains a number of my different media-related Python interfaces, as well as ex
 ## YouTube
 #####(`APIs/youtube.py`)
 
-function `search`: Given a search query, return one page's worth of YouTube search results, specifically the video IDs, titles, and durations.
+function `search`: Given a search query, yield one page's worth of YouTube search results as Video objects.
 
 function `download`: Given a video ID or URL, and an optional directory path (defaults to current directory), download the video to the directory (as a highest-quality .mp4).
+
+class `Video`: Given a video ID, collect all of the given video's relevant data in an object.
 
 
 ## Spotify
@@ -42,6 +44,6 @@ path = ...
 
 for track in spotify.Playlist(user_id, playlist_id).tracks:
 	query = "{0} - {1}".format(track.name, ", ".join(track.artists))
-	video_id = youtube.search(query)[0]["id"]
-	youtube.download(video_id, path)
+	video = youtube.search(query).next()
+	video.download(path)
 ```

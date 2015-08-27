@@ -29,5 +29,5 @@ if __name__ == "__main__":
 	# and download the first result
 	for track in spotify.Playlist(user_id, playlist_id).tracks:
 		query = "{0} - {1}".format(track.name, ", ".join(track.artists))
-		video_id = youtube.search(query)[0]["id"]
-		youtube.download(video_id, path)
+		video = youtube.search(query).next()
+		video.download(path)
