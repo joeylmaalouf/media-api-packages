@@ -14,8 +14,11 @@ def generate_token_string(client_id, client_secret):
 TOKEN_STRING = generate_token_string(CLIENT_ID, CLIENT_SECRET)
 
 
-def authorized_get(url, **kwargs):
-	return requests.get(url, headers = {"Authorization": TOKEN_STRING}, **kwargs).json()
+def authorized_get(url, token_string = None, **kwargs):
+	if token_string == None:
+		global TOKEN_STRING
+		token_string = TOKEN_STRING
+	return requests.get(url, headers = {"Authorization": token_string}, **kwargs).json()
 
 
 class Track(object):
@@ -29,7 +32,7 @@ class Track(object):
 		self.length = {"minutes": duration / 60, "seconds": duration % 60}
 
 	def __str__(self):
-		return "\"{0}\" - {1} ({2}:{3:02d})".format(
+		return "Track: \"{0}\" - {1} ({2}:{3:02d})".format(
 			self.name, ", ".join(self.artists),self.length["minutes"], self.length["seconds"])
 
 
@@ -44,7 +47,7 @@ class Playlist(object):
 		self.tracks = [Track(track["track"]["id"]) for track in response["tracks"]["items"]]
 
 	def __str__(self):
-		return "\"{0}\" - {1} ({2} song{3})".format(
+		return "Playlist: \"{0}\" - {1} ({2} song{3})".format(
 			self.name, self.owner, len(self.tracks), "" if len(self.tracks) == 1 else "s")
 
 
@@ -55,7 +58,7 @@ def get_playlists_from_user(user_id):
 
 if __name__ == "__main__":
 	for playlist in get_playlists_from_user("inkdota"):
-		print("Playlist: {0}".format(playlist))
+		print(playlist)
 		for track in playlist.tracks:
-			print("\tTrack: {0}".format(track))
+			print("\t{0}".format(track))
 		print("")
