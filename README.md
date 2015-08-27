@@ -14,9 +14,9 @@ function `download`: Given a video ID or URL, and an optional directory path (de
 ## Spotify
 #####(`APIs/spotify.py`)
 
-function `generate_token_string`: Using the per-app-generated CLIENT_ID and CLIENT_SECRET (https://developer.spotify.com/my-applications), generate an authentication token string.
+function `authorize`: Using a client ID and client secret (generate yours [here](https://developer.spotify.com/my-applications)), authorize your application to make requests of the Spotify Web API.
 
-function `authorized_get`:  Using the TOKEN_STRING, perform an authorized GET on the given URL.
+function `authorized_get`: Perform an authorized GET on the given URL.
 
 function `get_playlists_from_user`: Given a user ID, return all of their playlists as Playlists objects containing Track objects.
 
@@ -31,11 +31,17 @@ class `Track`: Given a track ID, collect all of the given track's relevant data 
 ```python
 from APIs import youtube, spotify
 
+# generate your own at https://developer.spotify.com/my-applications
+client_id = ...
+client_secret = ...
+spotify.authorize(client_id, client_secret)
+
 user_id = ...
 playlist_id = ...
+path = ...
 
 for track in spotify.Playlist(user_id, playlist_id).tracks:
 	query = "{0} - {1}".format(track.name, ", ".join(track.artists))
-	video_id = next(youtube.search(query))["id"]
+	video_id = youtube.search(query)[0]["id"]
 	youtube.download(video_id, path)
 ```
