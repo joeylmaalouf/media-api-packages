@@ -5,9 +5,11 @@ AUTH_TOKEN_STRING = ""
 
 
 def authorize(client_id, client_secret):
-	response = requests.post("https://accounts.spotify.com/api/token",
-			data = {"grant_type": "client_credentials"},
-			auth = (client_id, client_secret)).json()
+	response = requests.post(
+		url = "https://accounts.spotify.com/api/token",
+		data = {"grant_type": "client_credentials"},
+		auth = (client_id, client_secret)
+	).json()
 	global AUTH_TOKEN_STRING
 	AUTH_TOKEN_STRING = "Authorization: {0} {1}".format(response["token_type"], response["access_token"])
 
