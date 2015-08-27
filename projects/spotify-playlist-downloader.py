@@ -15,7 +15,7 @@ if __name__ == "__main__":
 		print("Creating path \"{}\"".format(path))
 		os.makedirs(path)
 
-	for song, artists in spotify.get_playlist_tracks(user_id, playlist_id):
-		query = "\"{0}\" by {1}".format(song, ", ".join(artists))
+	for track in spotify.Playlist(user_id, playlist_id).tracks:
+		query = "{0} - {1}".format(track.name, ", ".join(track.artists))
 		video_id = next(youtube.search(query))["id"]
 		youtube.download(video_id, path)
