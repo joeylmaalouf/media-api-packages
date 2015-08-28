@@ -10,8 +10,13 @@ def authorize(client_id, client_secret):
 		data = {"grant_type": "client_credentials"},
 		auth = (client_id, client_secret)
 	).json()
-	global AUTH_TOKEN_STRING
-	AUTH_TOKEN_STRING = "Authorization: {0} {1}".format(response["token_type"], response["access_token"])
+	try:
+		global AUTH_TOKEN_STRING
+		AUTH_TOKEN_STRING = "Authorization: {0} {1}".format(response["token_type"], response["access_token"])
+	except KeyError as err:
+		print("\nAuthorization response not found; did you authorize with a valid Spotify client ID and client secret?\n")
+		import sys
+		sys.exit(1)
 
 
 def authorized_get(url, **kwargs):
