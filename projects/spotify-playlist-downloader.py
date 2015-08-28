@@ -1,7 +1,6 @@
-from glob import glob
 import os, sys
 sys.path.append("..")
-from APIs import spotify, vlc, youtube
+from APIs import spotify, youtube
 
 
 if __name__ == "__main__":
@@ -32,9 +31,3 @@ if __name__ == "__main__":
 		query = "{0} - {1}".format(track.name, ", ".join(track.artists))
 		video = youtube.search(query).next()
 		video.download(path)
-
-	# convert each video file to an audio file,
-	# then delete the original
-	for video_file in glob(path + "/*.mp4"):
-		vlc.mp4tomp3(video_file)
-		os.remove(video_file)

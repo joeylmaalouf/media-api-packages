@@ -17,13 +17,6 @@ class `Playlist`: Given a user ID and a playlist ID, collect all of the playlist
 class `Track`: Given a track ID, collect all of the given track's relevant data in an object.
 
 
-##VLC
-#####(`APIs/vlc.py`)
-#####Note: requires VLC to be installed.
-
-function `mp4tomp3`: Converts the video file at the given input file path to an audio file and saves it with a different extension in the same place unless given a different output file path.
-
-
 ##YouTube
 #####(`APIs/youtube.py`)
 
@@ -53,8 +46,4 @@ for track in spotify.Playlist(user_id, playlist_id).tracks:
 	query = "{0} - {1}".format(track.name, ", ".join(track.artists))
 	video = youtube.search(query).next()
 	video.download(path)
-
-for video_file in glob(path + "/*.mp4"):
-		vlc.mp4tomp3(video_file)
-		os.remove(video_file)
 ```
