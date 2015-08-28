@@ -1,9 +1,9 @@
-# Media Packages
+#Media Packages
 
 Contains a number of my different media-related Python interfaces, as well as examples showing how to use and combine them.
 
 
-## Spotify
+##Spotify
 #####(`APIs/spotify.py`)
 
 function `authorize`: Using a client ID and client secret (generate yours [here](https://developer.spotify.com/my-applications)), authorize your application to make requests of the Spotify Web API.
@@ -17,13 +17,14 @@ class `Playlist`: Given a user ID and a playlist ID, collect all of the playlist
 class `Track`: Given a track ID, collect all of the given track's relevant data in an object.
 
 
-## VLC
+##VLC
 #####(`APIs/vlc.py`)
+#####Note: requires VLC to be installed.
 
 function `mp4tomp3`: Converts the video file at the given input file path to an audio file and saves it with a different extension in the same place unless given a different output file path.
 
 
-## YouTube
+##YouTube
 #####(`APIs/youtube.py`)
 
 function `search`: Given a search query, yield one page's worth of YouTube search results as Video objects.
@@ -33,7 +34,7 @@ function `download`: Given a video ID or URL, and an optional directory path (de
 class `Video`: Given a video ID, collect all of the given video's relevant data in an object.
 
 
-## Example Usage
+##Example Usage
 #####(`projects/spotify-playlist-downloader.py`)
 
 ```python
