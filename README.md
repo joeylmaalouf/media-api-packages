@@ -53,4 +53,8 @@ for track in spotify.Playlist(user_id, playlist_id).tracks:
 	query = "{0} - {1}".format(track.name, ", ".join(track.artists))
 	video = youtube.search(query).next()
 	video.download(path)
+
+for video_file in glob(path + "/*.mp4"):
+		vlc.mp4tomp3(video_file)
+		os.remove(video_file)
 ```
