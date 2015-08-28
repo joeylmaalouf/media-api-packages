@@ -14,7 +14,7 @@ def authorize(client_id, client_secret):
 		global AUTH_TOKEN_STRING
 		AUTH_TOKEN_STRING = "Authorization: {0} {1}".format(response["token_type"], response["access_token"])
 	except KeyError as err:
-		print("\nAuthorization response not found; did you authorize with a valid Spotify client ID and client secret?\n")
+		print("Authorization response not found; did you authorize with a valid Spotify client ID and client secret?")
 		import sys
 		sys.exit(1)
 
