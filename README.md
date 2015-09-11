@@ -1,4 +1,4 @@
-#Media Packages
+#Media API Packages
 
 Contains a number of my different media-related Python interfaces, as well as examples showing how to use and combine them.
 
