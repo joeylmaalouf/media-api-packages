@@ -47,3 +47,7 @@ for track in spotify.Playlist(user_id, playlist_id).tracks:
 	video = youtube.search(query).next()
 	video.download(path)
 ```
+
+##To do:
+
+Remove dependency on PyTube for YouTube video downloading.
