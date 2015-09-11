@@ -48,6 +48,6 @@ for track in spotify.Playlist(user_id, playlist_id).tracks:
 	video.download(path)
 ```
 
-##To do:
+##To Do:
 
 Remove dependency on PyTube for YouTube video downloading.
